@@ -1,0 +1,89 @@
+﻿@model IEnumerable<DailyDairyAuto.Models.CattleDatum>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<title>View Group</title>
+<!-- plugins:css -->
+<link rel="stylesheet" href="~/css/vendors/mdi/materialdesignicons.css" asp-append-version="true">
+<link rel="stylesheet" href="~/css/vendors/flag-icon-css/css/flag-icon.css" asp-append-version="true">
+<link rel="stylesheet" href="~/css/vendors/Css/vendor.bundle.base.css" asp-append-version="true">
+<link rel="stylesheet" href="~/css/vendors/font-awesome/font-awesome.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" asp-append-version="true">
+
+<!-- End plugin css for this page -->
+<!-- inject:css -->
+<!-- endinject -->
+<!-- Layout styles -->
+<link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
+<!-- End layout styles -->
+<link rel="shortcut icon" href="~/images/favicon.png" />
+
+
+<div class="container-scroller">
+
+    <div class="content-wrapper">
+
+        <div class="row">
+
+            <div class="col-lg-12 grid-margin stretch-card">
+
+                <div class="card">
+
+                    <div class="card-body">
+
+
+                        <div class="card-title">
+                            <h1>Groups</h1>
+
+                            <p>
+                                <a class="btn btn-primary" style="float:right;margin-bottom:20px" asp-action="Create">Add Group</a>
+                            </p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GrpAvgMilk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCows)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GroupId)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GrpAvgMilk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCows)
+            </td>
+            <td>
+               <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.GroupId" style="font-size:small">Edit</a>
+               <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.GroupId">Details</a>
+               <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.GroupId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+</div>
+               </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</div>

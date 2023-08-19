@@ -1,0 +1,73 @@
+﻿@model DailyDairyAuto.Models.CattleDatum
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<title>View Group</title>
+<!-- plugins:css -->
+<link rel="stylesheet" href="~/css/vendors/mdi/materialdesignicons.css" asp-append-version="true">
+<link rel="stylesheet" href="~/css/vendors/flag-icon-css/css/flag-icon.css" asp-append-version="true">
+<link rel="stylesheet" href="~/css/vendors/Css/vendor.bundle.base.css" asp-append-version="true">
+<link rel="stylesheet" href="~/css/vendors/font-awesome/font-awesome.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" asp-append-version="true">
+
+<!-- End plugin css for this page -->
+<!-- inject:css -->
+<!-- endinject -->
+<!-- Layout styles -->
+<link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
+<!-- End layout styles -->
+<link rel="shortcut icon" href="~/images/favicon.png" />
+
+
+
+<div class="container-scroller">
+
+    <div class="content-wrapper">
+
+        <div class="row">
+
+            <div class="col-12 grid-margin stretch-card">
+
+                <div class="card">
+                    <div class="card-body">
+
+
+                        <div class="card-title">  <h1>Add Group</h1></div>
+
+                        <h4 class="card-description">Group Data</h4>
+
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="GrpAvgMilk" class="control-label"></label>
+                <input asp-for="GrpAvgMilk" class="form-control" />
+                <span asp-validation-for="GrpAvgMilk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalCows" class="control-label"></label>
+                <input asp-for="TotalCows" class="form-control" />
+                <span asp-validation-for="TotalCows" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Group" class="btn btn-primary" />
+            </div>
+
+                            <div>
+                                <a asp-action="Index">Back to List</a>
+                            </div>
+        </form>
+    </div>
+</div>
+            </div>
+        </div>
+</div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

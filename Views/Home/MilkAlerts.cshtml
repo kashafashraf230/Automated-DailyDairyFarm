@@ -1,0 +1,148 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Alerts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section AddToHead{
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous" asp-asp-append-version="true"></script>
+
+}
+
+<style>
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .spacer {
+        height: 20px;
+    }
+
+    .success-msg {
+        color: #17A100;
+        padding: 0px 20px;
+        font-size: 18px;
+    }
+
+    .success-alert {
+        background: #94F493;
+        padding: 20px 40px;
+        border-radius: 4px;
+        border-left: 4px solid #17A100;
+    }
+
+    .success-icon {
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 30px;
+        margin-left: -25px;
+        margin-right: 10px;
+    }
+
+    .error-msg {
+        color: #CE0000;
+        padding: 0px 20px;
+        font-size: 18px;
+    }
+
+    .error-alert {
+        background: #F18F8F;
+        padding: 20px 40px;
+        border-radius: 4px;
+        border-left: 4px solid #CE0000;
+    }
+
+    .error-icon {
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 30px;
+        margin-left: -25px;
+        margin-right: 10px;
+    }
+
+    .warning-msg {
+        color: #ffa502;
+        padding: 0px 20px;
+        font-size: 18px;
+    }
+
+    .warning-alert {
+        background: #ffdb96;
+        padding: 20px 40px;
+        border-radius: 4px;
+        border-left: 4px solid #ffa502;
+    }
+
+    .warning-icon {
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 30px;
+        margin-left: -25px;
+        margin-right: 10px;
+    }
+
+
+    button {
+        background: transparent;
+        border: none;
+    }
+</style>
+
+
+
+<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
+
+<div class="centered">
+
+
+    @{
+
+        for (int i = 0; i < ViewBag.milkQuality.Length; i++)
+        {
+            int random_id = new Random().Next(1, 1000);
+
+            if (ViewBag.milkQuality[i] == "high")
+            {
+                <div class="success-alert" id="success-alert">
+                    <span class="success-icon"><img src="~/images/success.png" /></span>
+                    <span class="succes-msg" style="color:#17A100;">Quality of Milk ID#<b> @random_id</b> is High</span>
+                </div>
+
+                <div class="spacer"></div>
+            }
+
+            if (ViewBag.milkQuality[i] == "low")
+            {
+                <div class="error-alert" id="error-alert">
+                    <span class="error-icon"><img src="~/images/error.png" /></span>
+                    <span class="error-msg" style="color:#CE0000;">Quality of Milk# <b>@random_id</b> is Low!</span>
+                </div>
+                <div class="spacer"></div>
+            }
+
+            if (ViewBag.milkQuality[i] == "medium")
+            {
+                <div class="warning-alert" id="medium-alert">
+                    <span class="warning-icon"><img src="~/images/warning.png" /></span>
+                    <span class="warning-msg" style="color:#ffa502;">Quality of Milk# <b>@random_id</b> has slight issue!</span>
+
+                </div>
+                <div class="spacer"></div>
+            }
+
+        }
+    }
+
+
+
+</div>
+

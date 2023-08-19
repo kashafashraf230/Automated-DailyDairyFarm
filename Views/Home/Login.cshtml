@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Login</title>
+    <link href="~/css/login.css" rel="stylesheet">
+
+
+    <script>
+        function verify() {
+
+            user = document.getElementById("usr").value;
+            passwd = document.getElementById("passwd").value;
+
+            if (user == '') { document.getElementById('error').innerHTML = "Username can't be empty!"; return false; }
+            if (passwd == '') { document.getElementById('error').innerHTML = "Password can't be empty!"; return false; }
+
+            return true;
+              
+
+        }
+
+    </script>
+</head>
+
+
+<body>
+
+
+    <div class="center">
+
+
+
+        <h1>Login</h1>
+        <form method="POST" action="/Home/LoginVerify">
+
+            <span class="error" id="error" style="color:red;"></span>
+            <div class="text_field">
+                <label>Username</label>
+                <input type="text" name="username" id="usr">
+                <span class="error" id="usr-error"></span>
+
+            </div>
+
+            <div class="text_field">
+                <label>Password</label>
+                <input type="password" name="password" id="passwd">
+                <span class="error" id="passwd-error"></span>
+
+            </div>
+            <input type="submit" value="login" onclick="return verify()">
+        </form>
+    </div>
+</body>
+
+
+</html>

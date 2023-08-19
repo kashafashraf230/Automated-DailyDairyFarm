@@ -1,0 +1,95 @@
+﻿@model DailyDairyAuto.Models.CowDatum
+
+@{
+    ViewData["Title"] = "Create";
+}
+<title>View Animal</title>
+<!-- plugins:css -->
+<link rel="stylesheet" href="~/css/vendors/mdi/materialdesignicons.css" asp-append-version="true">
+<link rel="stylesheet" href="~/css/vendors/flag-icon-css/css/flag-icon.css" asp-append-version="true">
+<link rel="stylesheet" href="~/css/vendors/Css/vendor.bundle.base.css" asp-append-version="true">
+<link rel="stylesheet" href="~/css/vendors/font-awesome/font-awesome.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" asp-append-version="true">
+
+<!-- End plugin css for this page -->
+<!-- inject:css -->
+<!-- endinject -->
+<!-- Layout styles -->
+<link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
+<!-- End layout styles -->
+<link rel="shortcut icon" href="~/images/favicon.png" />
+
+
+
+<div class="container-scroller">
+       
+<div class="content-wrapper">
+
+    <div class="row">
+
+        <div class="col-12 grid-margin stretch-card">
+        
+            <div class="card">
+                <div class="card-body">
+
+
+                    <div class="card-title">  <h1>Add Animal</h1></div>
+
+                    <h4 class="card-description">Cow Data</h4>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" id="exampleInputName1" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Breed" class="control-label"></label>
+                            <input asp-for="Breed" class="form-control" id="exampleInputEmail3" />
+                <span asp-validation-for="Breed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vaccinated" class="control-label"></label>
+                <input asp-for="Vaccinated" class="form-control" />
+                <span asp-validation-for="Vaccinated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AvgMilkProd" class="control-label"></label>
+                <input asp-for="AvgMilkProd" class="form-control" />
+                <span asp-validation-for="AvgMilkProd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GroupId" class="control-label"></label>
+                <select asp-for="GroupId" class ="form-control" asp-items="ViewBag.GroupId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Animal" class="btn btn-primary" />
+            </div>
+                               
+
+        </form>
+
+                            <div>
+                                <a asp-action="Index">Back to List</a>
+                            </div>
+    </div>
+</div>
+</div>
+        </div>
+
+</div>
+
+</div>
+   
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

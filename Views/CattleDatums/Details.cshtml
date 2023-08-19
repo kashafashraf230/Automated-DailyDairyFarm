@@ -1,0 +1,48 @@
+﻿@model DailyDairyAuto.Models.CattleDatum
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="container-scroller">
+
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-12 grid-margin stretch-card">
+
+                <div class="card">
+                    <div class="card-body">
+
+
+                        <div class="card-title">
+                            <h1>Group Details</h1>
+                        </div>
+
+                        <h4 class="card-description">Group Data</h4>
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GrpAvgMilk)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GrpAvgMilk)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalCows)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TotalCows)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class = "btn btn-primary" asp-action="Edit" asp-route-id="@Model?.GroupId">Update Group</a>
+    <a asp-action="Index">Back to List</a>
+</div>
+                    </div>
+                </div>
+            </div>
+</div>
+    </div>
+</div>

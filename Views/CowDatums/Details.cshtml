@@ -1,0 +1,121 @@
+﻿@model Tuple<DailyDairyAuto.Models.CowDatum, DailyDairyAuto.Models.Lactation>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<script>
+
+    window.onload = function () {
+        console.log("inside load")
+        // code to run when page is loaded
+
+        var source = document.getElementById('diet')
+        var stage = document.getElementById('stage').innerText
+        
+        if (stage.substring(23,28) == "early") {
+            console.log("inside early")
+            source.src = "@Url.Content("~/images/early.png")"
+
+        }
+        if (stage.substring(23, 26) == "mid") {
+            console.log("inside mid")
+            source.src = "@Url.Content("~/images/mid.png")"
+        }
+        if (stage.substring(23, 27) == "late") {
+            console.log("inside late")
+            source.src = "@Url.Content("~/images/late.png")"
+        }
+    };
+    
+</script>
+
+<div class="container-scroller">
+
+    <div class="content-wrapper">
+        <div class="row">
+
+        <div class="col-12 grid-margin stretch-card">
+
+            <div class="card">
+                <div class="card-body">
+
+
+                    <div class="card-title">
+                        <h1>Cow Details</h1>
+                    </div>
+
+                    <h4 class="card-description">Cow Data</h4>
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Item1.Age)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Item1.Age)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Item1.Breed)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Item1.Breed)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Item1.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Item1.Status)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Item1.Vaccinated)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Item1.Vaccinated)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Item1.AvgMilkProd)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Item1.AvgMilkProd)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Item1.Group)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Item1.Group.GroupId)
+        </dd>
+         <dd id="stage" class = "col-sm-10">
+                                   
+                                    <span style="font-weight:bold">Lactation Stage: &emsp; &emsp; &nbsp; </span>
+                                    @Html.DisplayFor(model => model.Item2.lactation)
+                                   
+        </dd>
+                 
+
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Item1.CowId">Update Cow</a>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+                </div>
+                    
+            </div>
+            </div>
+
+        </div>
+
+    <div style="width:1025px; background-color:white">
+            <img style="width:750px;" id="diet" src="~/images/early.png" />
+    </div>
+
+       
+</div>
+</div>
+
+    
+
+
+
